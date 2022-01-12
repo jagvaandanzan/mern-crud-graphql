@@ -2,15 +2,8 @@ const { gql } = require("apollo-server-express");
 
 const userSchema = gql`
   type Query {
-    getUser(
-      _id: ID
-      firstName: String
-      lastName: String
-      age: Int
-      phone: Int
-      email: String
-      register: String
-    ): User
+    getUser(_id: ID!): User
+    getUsers: [User]
   }
   type Mutation {
     createUser(
@@ -46,6 +39,7 @@ const userSchema = gql`
 const userResolvers = {
   Query: {
     getUser: require("../../queries/getUser"),
+    getUsers: require("../../queries/getUsers"),
   },
   Mutation: {
     createUser: require("../../mutations/user/createUser"),

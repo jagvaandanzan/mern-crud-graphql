@@ -8,13 +8,15 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const { DB_URL, PORT } = require("./constants/constants");
 const { User } = require("./model/model");
+const { userSchema, userResolvers } = require("./graphql/schemas/user/user");
+const { typeDefs, resolvers } = require("./graphql/resolver");
 
 const port = 8080;
 
 const app = express();
 app.use(bodyParser.json());
 app.use(express.json());
-app.use(cors);
+app.use(cors());
 
 mongoose.connect(DB_URL, {
   useNewUrlParser: true,

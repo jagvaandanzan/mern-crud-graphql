@@ -10,7 +10,7 @@ module.exports = {
           type: String,
           required: true,
         },
-        userName: {
+        firstName: {
           type: String,
           required: true,
         },
